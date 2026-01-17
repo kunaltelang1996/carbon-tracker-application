@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: CarbonTracker
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/carbontracker
+    username: root
+    password: Kunal@1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
