@@ -6,6 +6,7 @@ import com.carbontracker.Response.AuthResponse.RegisterResponse;
 import com.carbontracker.Service.AuthService;
 import com.carbontracker.Utility.ValidationUtility;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class AuthController {
     private final ValidationUtility validationUtility;
 
     @PostMapping("/register")
-    public ResponseEntity<RegisterResponse> registerUser(@RequestBody RegisterRequest request,
+    public ResponseEntity<RegisterResponse> registerUser(@Valid @RequestBody RegisterRequest request,
                                                HttpServletRequest httpServletRequest){
         if(!validationUtility.validateUser(request)){
             throw new UserAlreadyExistsException("User is already Registered");

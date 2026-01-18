@@ -8,6 +8,7 @@ import com.carbontracker.Request.AuthRequest.RegisterRequest;
 import com.carbontracker.Response.AuthResponse.RegisterResponse;
 import com.carbontracker.Response.StatusServiceResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,13 +16,14 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public RegisterResponse registerUser(RegisterRequest request, String url) {
         RegisterResponse response = new RegisterResponse();
         StatusServiceResponse statusServiceResponse = new StatusServiceResponse();
         User user = new User();
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setName(request.getName());
         user.setPhone(request.getPhone());
         userRepository.save(user);
