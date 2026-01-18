@@ -6,9 +6,9 @@ spring:
     name: CarbonTracker
 
   datasource:
-    url: jdbc:mysql://localhost:3306/carbontracker
-    username: root
-    password: Kunal@1234
+    url: ${DB_URL:jdbc:mysql://localhost:3306/carbontracker}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:changeme}
 
   jpa:
     hibernate:
