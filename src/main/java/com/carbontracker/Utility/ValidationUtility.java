@@ -20,7 +20,9 @@ public class ValidationUtility {
      * @param request The registration request containing user details
      * @return true if user does not exist, false if user already exists
      */
-    public boolean validateUser(RegisterRequest request){
-        return !userRepository.existsByEmail(request.getEmail());
+    public boolean validateUser(String email){
+        return userRepository.existsByEmail(email);
     }
+
+
 }

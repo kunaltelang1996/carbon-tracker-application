@@ -1,4 +1,4 @@
-package com.carbontracker.ExceptionHandler;
+package com.carbontracker.ExceptionHandler.UserExceptions;
 
 /**
  * Exception thrown when attempting to register a user that already exists.

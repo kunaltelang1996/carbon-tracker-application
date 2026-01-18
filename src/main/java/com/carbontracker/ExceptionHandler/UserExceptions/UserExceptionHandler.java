@@ -1,6 +1,7 @@
-package com.carbontracker.ExceptionHandler;
+package com.carbontracker.ExceptionHandler.UserExceptions;
 
 import com.carbontracker.DTO.ErrorResponse;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -16,6 +17,7 @@ import java.util.Map;
  * Global exception handler for the application.
  * Handles various exceptions and returns appropriate error responses.
  */
+@Hidden
 @RestControllerAdvice
 public class UserExceptionHandler {
 
@@ -28,6 +30,19 @@ public class UserExceptionHandler {
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleUserAlreadyExists(
             UserAlreadyExistsException ex) {
+
+        ErrorResponse response = new ErrorResponse(
+                HttpStatus.CONFLICT.value(),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(UserNotRegisteredException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotRegistered(
+            UserNotRegisteredException ex) {
 
         ErrorResponse response = new ErrorResponse(
                 HttpStatus.CONFLICT.value(),

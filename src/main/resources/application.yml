@@ -6,11 +6,28 @@ spring:
     name: CarbonTracker
 
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/carbontracker}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:changeme}
+    url: CARBONTRACKERDBURL
+    username: CARBONTRACKERDBUSERNAME
+    password: CARBONTRACKERDBPASSWORD
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    api-docs:
+      path: /v3/api-docs
+
+security:
+  jwt:
+    access-token:
+      expiration: ACCESSTOKENEXPIRY        # 15 minutes
+    refresh-token:
+      expiration: REFRESHTOKENEXPIRY     # 7 days
+    signingsecret: SIGNINGSECRETKEY
