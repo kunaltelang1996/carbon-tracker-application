@@ -14,11 +14,5 @@ public class ApplianceController {
 
     private final ApplianceService applianceService;
 
-
-//    public ResponseEntity<String> addAppliance(ApplianceRequest applianceRequest) {
-//
-//    }
-
-
-
+    // TODO: Implement addAppliance endpoint
 }

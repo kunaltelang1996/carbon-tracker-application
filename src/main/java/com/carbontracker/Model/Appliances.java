@@ -28,6 +28,4 @@ public class Appliances {
     
     @Column(nullable = false)
     private double powerWatts;
-
-
 }

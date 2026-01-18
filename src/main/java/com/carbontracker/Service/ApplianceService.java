@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 public class ApplianceService {
 
     public String addAppliance(ApplianceRequest applianceRequest) {
-        return null;
+        // TODO: Implement appliance creation logic
+        throw new UnsupportedOperationException("Appliance creation not yet implemented");
     }
 
 }
