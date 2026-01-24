@@ -6,9 +6,9 @@ spring:
     name: CarbonTracker
 
   datasource:
-    url: CARBONTRACKERDBURL
-    username: CARBONTRACKERDBUSERNAME
-    password: CARBONTRACKERDBPASSWORD
+    url: jdbc:mysql://localhost:3306/carbontracker
+    username: root
+    password: Kunal@1234
 
   jpa:
     hibernate:
@@ -27,7 +27,25 @@ springdoc:
 security:
   jwt:
     access-token:
-      expiration: ACCESSTOKENEXPIRY        # 15 minutes
+      expiration: 900000        # 15 minutes
     refresh-token:
-      expiration: REFRESHTOKENEXPIRY     # 7 days
-    signingsecret: SIGNINGSECRETKEY
+      expiration: 604800000     # 7 days
+    signingsecret: carbon-tracker-application-for-household
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, loggers, health
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: CarbonTracker
+    version: 1.0.0
+    description: Application to track and reduce household carbon footprint
