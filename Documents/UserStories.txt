@@ -1,0 +1,207 @@
+1️⃣ User Stories
+
+These are written in standard Agile format and grouped by feature.
+
+Epic: User Account & Household Setup
+
+US-1
+As a user, I want to register an account so that my household data is stored securely.
+
+US-2
+As a user, I want to log in to the system so that I can access my household’s carbon data.
+
+US-3
+As a user, I want my data to be associated with a single household so that all appliance usage belongs to one place.
+
+Epic: Appliance Management
+
+US-4
+As a user, I want to add household appliances with their power ratings so that emissions can be calculated accurately.
+
+US-5
+As a user, I want to view a list of my appliances so that I can manage them easily.
+
+US-6
+As a user, I want to update appliance details so that incorrect data can be fixed.
+
+US-7
+As a user, I want to delete appliances so that unused appliances do not affect my carbon calculations.
+
+Epic: Appliance Usage Tracking
+
+US-8
+As a user, I want to log daily usage hours for each appliance so that my energy consumption is recorded.
+
+US-9
+As a user, I want to select the date for appliance usage so that I can log past usage.
+
+US-10
+As a user, I want the system to prevent invalid usage values so that data remains realistic.
+
+US-11
+As a user, I want to edit or delete usage entries so that mistakes can be corrected.
+
+Epic: Carbon Emission Calculation
+
+US-12
+As a user, I want the system to calculate energy consumption automatically so that I do not need to do manual calculations.
+
+US-13
+As a user, I want the system to calculate carbon emissions based on energy usage so that I can understand my environmental impact.
+
+US-14
+As a user, I want emissions to be recalculated when usage data changes so that results stay accurate.
+
+Epic: Emission Factor Configuration
+
+US-15
+As a user, I want the system to use a default emission factor so that I can get results without configuration.
+
+US-16
+As a user, I want to select my region so that emission calculations are more accurate.
+
+Epic: Dashboard & Insights
+
+US-17
+As a user, I want to see today’s total carbon emissions so that I can track daily impact.
+
+US-18
+As a user, I want to see monthly emissions so that I can understand long-term trends.
+
+US-19
+As a user, I want to see emissions broken down by appliance so that I know which devices consume the most energy.
+
+US-20
+As a user, I want to view emission trends in charts so that data is easy to understand.
+
+Epic: Reporting & Data Export
+
+US-21
+As a user, I want to export my carbon data so that I can analyze it externally.
+
+US-22
+As a user, I want summary statistics so that I can quickly understand my household’s footprint.
+
+2️⃣ Software Requirements Specification (SRS)
+
+This is structured like a formal academic or industry SRS.
+
+1. Introduction
+1.1 Purpose
+
+This document specifies the requirements for a Household Carbon Footprint Tracking Application. The application enables users to calculate, monitor, and analyze carbon emissions generated from household electricity consumption.
+
+1.2 Scope
+
+The system focuses on electricity-based carbon emissions produced by household appliances. It supports manual data entry and provides daily and monthly emission insights.
+
+1.3 Definitions
+
+kWh: Kilowatt-hour, unit of electrical energy
+
+Emission Factor: CO₂ emitted per unit of electricity consumed
+
+Household: A single residential unit tracked by one account
+
+2. Overall Description
+2.1 Product Perspective
+
+The application is a web-based system consisting of a Java Spring Boot backend and a React frontend. It follows a client-server architecture.
+
+2.2 User Characteristics
+
+Users are assumed to have basic familiarity with web applications. No technical expertise is required.
+
+2.3 Operating Environment
+
+Backend: Java, Spring Boot
+
+Frontend: React
+
+Database: Relational database
+
+Platform: Web browser
+
+2.4 Constraints
+
+Emission calculations are estimates, not legally certified measurements.
+
+Real-time smart meter integration is not included in the initial version.
+
+3. Functional Requirements
+3.1 User Management
+
+The system shall allow users to register and authenticate.
+
+The system shall restrict data access to authenticated users.
+
+Each user account shall represent a single household.
+
+3.2 Appliance Management
+
+The system shall allow users to create, view, update, and delete appliances.
+
+Each appliance shall store a name and power rating in watts.
+
+3.3 Usage Tracking
+
+The system shall allow users to log appliance usage by date and duration.
+
+The system shall validate usage inputs.
+
+The system shall support editing and deletion of usage records.
+
+3.4 Carbon Emission Calculation
+
+The system shall calculate energy consumption in kWh.
+
+The system shall calculate carbon emissions using emission factors.
+
+The system shall persist calculated emissions.
+
+3.5 Emission Factor Configuration
+
+The system shall provide a default emission factor.
+
+The system shall support region-based emission configuration.
+
+3.6 Dashboard and Reporting
+
+The system shall display daily and monthly emission totals.
+
+The system shall provide visual charts for emission trends.
+
+The system shall allow exporting data in CSV format.
+
+4. Non-Functional Requirements
+4.1 Performance
+
+The system shall respond to user actions within acceptable time limits.
+
+4.2 Security
+
+The system shall protect user data using authentication and authorization mechanisms.
+
+4.3 Scalability
+
+The system shall support growth in the number of users and usage records.
+
+4.4 Maintainability
+
+The system shall follow a modular and layered architecture.
+
+5. Assumptions and Dependencies
+
+Users manually enter appliance usage data.
+
+Emission factors are provided by trusted external references.
+
+Internet access is required.
+
+6. Out of Scope
+
+Tracking non-electricity emissions
+
+Real-time energy monitoring
+
+Regulatory compliance reporting
